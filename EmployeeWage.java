@@ -1,4 +1,10 @@
-class CompanyEmpWage{
+interface IcomputeEmpWage {
+    void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth);
+    int computeEmpWage(CompanyEmpWage companyEmpWage);
+    void computeEmpWage();
+    int getTotalWage(String company);
+}
+    class CompanyEmpWage{
     public  final String company;
     public  final  int empRatePerHour;
     public final int numOfWorkingDays;
@@ -84,10 +90,14 @@ public class EmployeeWage {
 
 
     public static void main(String[] args) {
-        EmployeeWage empWageBuilder=new EmployeeWage();
+        IEmployeeWage empWageBuilder=new EmployeeWage();
         empWageBuilder.addCompanyEmpWage("Dmart", 20, 2, 10);
         empWageBuilder.addCompanyEmpWage("Oracle", 10, 20, 15);
         empWageBuilder.computeEmpWage();
     }
-}
 
+    @override
+    public int getTotalWage(String company) {
+      return companyEmpWageMap.get(company).totalEmpWage;    
+}
+}
