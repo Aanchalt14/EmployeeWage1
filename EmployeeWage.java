@@ -35,11 +35,11 @@ public class EmployeeWage {
 
     public int numOfCompany=0;
 
-    CompanyEmpWage companyEmpWage[];
+    ArrayList <CompanyEmpWage> companyEmpWageList;
 
     public EmployeeWageBuilder()
     {
-        companyEmpWage=new CompanyEmpWage[5];
+        companyEmpWageList=new ArrayList<CompanyEmpWage>();
     }
 
     private void addCompanyEmpWage(String company,int empRatePerHour,int numOfWorkingDays,int maxHoursPerMonth)
@@ -95,9 +95,4 @@ public class EmployeeWage {
         empWageBuilder.addCompanyEmpWage("Oracle", 10, 20, 15);
         empWageBuilder.computeEmpWage();
     }
-
-    @override
-    public int getTotalWage(String company) {
-      return companyEmpWageMap.get(company).totalEmpWage;    
-}
 }
